@@ -1,37 +1,14 @@
-## Welcome to GitHub Pages
+## synchronized无法实现指令重排，但是为什么能保证有序性
 
-You can use the [editor on GitHub](https://github.com/hehao426/hehao_blog.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### 关键点：
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. as-if-serial保证单线程下的程序执行结果的准确性
+2. synchronized保证程序段执行之前获得锁，只允许本线程获得这个锁
 
-### Markdown
+### 答题步骤：
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hehao426/hehao_blog.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+1. 解释什么叫指令重排，它的实现原理
+2. 通过指令重排导出会出现有序性问题
+3. 引出as-if-serial语义，说出它的作用
+4. 解释一下synchronized，原理，还有它的作用（重入锁，<u>排他锁</u>）
+5. 联系as-if-serial和synchronized
